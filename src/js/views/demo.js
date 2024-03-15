@@ -6,7 +6,22 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 
 export const Demo = () => {
-	const { store, actions } = useContext(Context);
+
+	const [contact, setContact] = useState()
+
+	const apisubmmit = async () => {
+		try {
+			const api = await fetch("https://playground.4geeks.com/apis/fake/contact/")
+			const data = await api.json();
+			console.log(data)
+			setContact(data)
+
+		} catch (error) {
+			console.log(error)
+		}
+
+
+	}
 
 	return <div>
 
