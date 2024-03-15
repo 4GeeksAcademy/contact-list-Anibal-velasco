@@ -1,0 +1,39 @@
+.cardHome{
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cardImg{
+    width: 160px;
+    border-radius: 50%;
+    height: 160px;
+    margin: auto;
+    margin-left: 20px;
+}
+
+.cardInf{
+    width: 200px;
+    margin-left: 100px;
+}
+
+.fatherCard{
+    width: 900px; 
+    display: flex;
+    border: 1px solid #8080804f;
+    border-radius: 12px;
+    background: #8080802b;
+}
+
+.btnCard{
+    margin: 10px;
+    background: none;
+    border: none;
+}
+
+.cardButton{
+    margin-left: 240px;
+    padding: 11px;
+    display: flex;
+    align-items: flex-start;
+}

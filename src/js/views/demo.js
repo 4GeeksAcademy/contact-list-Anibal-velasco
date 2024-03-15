@@ -8,36 +8,44 @@ import "../../styles/demo.css";
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
-	return (
-		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+	return <div>
+
+		<div style={{ textAlign: "center" }}>
+			<h1>Add a New Contact</h1>
+
+			<div className="container">
+				<div class="row">
+					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Full Name</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Enter Full name" />
+					</div>
+				</div>
+				<div class="row">
+					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Enter Email" />
+					</div>
+				</div>
+				<div class="row">
+					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Phone</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Enter phone" />
+					</div>
+				</div>
+				<div class="row">
+					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Address</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Enter addrees" />
+					</div>
+				</div>
+
+				<button style={{ width: "95%" }} type="button" class="btn btn-primary">Save</button>
+			</div>
+
+
+			<Link to="/" >
+				<button style={{ margin: "10px" }} className="btn btn-primary">Back home</button>
 			</Link>
 		</div>
-	);
+	</div>;
 };
