@@ -23,12 +23,27 @@
     border: 1px solid #8080804f;
     border-radius: 12px;
     background: #8080802b;
+    transition-property: transform;
+    transition-duration: 250ms;
+}
+.fatherCard:hover{
+    transform: scale(1.03);
 }
 
 .btnCard{
-    margin: 10px;
+    margin: 6px;
     background: none;
     border: none;
+    width: 40px;
+    height: 40px;
+    transition-property: all;
+    transition-duration: 250ms;
+}
+.btnCard:hover{
+    background: #e2d7a9;
+    border-radius: 13px;
+    width: 45px;
+    height: 45px;
 }
 
 .cardButton{

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/home.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPen, faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export const Home = () => {
 
@@ -27,13 +27,13 @@ export const Home = () => {
 		<div className="fatherCard container">
 			< div className="cardHome">
 				<div style={{ margin: "15px" }} >
-					<img className="cardImg" src="https://estaticos.elcolombiano.com/binrepository/780x565/0c0/780d565/none/11101/NFGU/cristiano-ronaldo-ig-personal_43991124_20231215212229.jpg" alt="cristiano" />
+					<img className="cardImg" src="https://www.mundodeportivo.com/files/image_449_465/uploads/2023/09/17/6506eaa6a517a.jpeg" alt="cristiano" />
 				</div>
 				<div className="cardInf">
-					{/* <h1>{contact.full_name}</h1> */}
-					<p>ubicacion</p>
-					<p>numero</p>
-					<p>corro</p>
+					<h1 style={{ marginTop: "10px" }}>Rolnaldo</h1>
+					<p> <FontAwesomeIcon icon={faLocationDot} style={{ marginRight: "8px" }} />000 YouLove_street lt-14</p>
+					<p> <FontAwesomeIcon icon={faPhone} style={{ marginRight: "8px" }} />501-000-102</p>
+					<p><FontAwesomeIcon icon={faEnvelope} style={{ marginRight: "8px" }} />TestUsuario#1@test.com</p>
 				</div>
 				<div className="cardButton">
 					<button className="btnCard" ><FontAwesomeIcon icon={faPen} size="lg" style={{ color: "#000000", }} /></button>
