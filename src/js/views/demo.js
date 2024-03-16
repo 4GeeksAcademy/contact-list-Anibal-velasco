@@ -32,25 +32,25 @@ export const Demo = () => {
 				<div class="row d-block">
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Full Name</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "885px" }} id="colFormLabelLg" placeholder="Enter Full name" />
+						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "1235px" }} id="colFormLabelLg" placeholder="Enter Full name" />
 					</div>
 				</div>
 				<div class="row d-block">
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "885px" }} id="colFormLabelLg" placeholder="Enter Email" />
+						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "1235px" }} id="colFormLabelLg" placeholder="Enter Email" />
 					</div>
 				</div>
 				<div class="row d-block">
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Phone</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "885px" }} id="colFormLabelLg" placeholder="Enter phone" />
+						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "1235px" }} id="colFormLabelLg" placeholder="Enter phone" />
 					</div>
 				</div>
 				<div class="row d-block">
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Address</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "885px" }} id="colFormLabelLg" placeholder="Enter addrees" />
+						<input type="email" class="form-control form-control-lg colorStyle" style={{ width: "1235px" }} id="colFormLabelLg" placeholder="Enter addrees" />
 					</div>
 				</div>
 

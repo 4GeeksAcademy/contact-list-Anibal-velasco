@@ -18,6 +18,7 @@
 }
 
 .fatherCard{
+    margin-bottom: 10px;
     width: 900px; 
     display: flex;
     border: 1px solid #8080804f;
@@ -25,6 +26,7 @@
     background: #8080802b;
     transition-property: transform;
     transition-duration: 250ms;
+    min-height: 250px;
 }
 .fatherCard:hover{
     transform: scale(1.03);
