@@ -8,7 +8,7 @@ import "../../styles/demo.css";
 export const Demo = () => {
 
 	const [contact, setContact] = useState({
-		"full_name": "",
+		"name": "",
 		"email": "",
 		"agenda_slug": "my_super_agenda",
 		"address": "",
@@ -18,7 +18,7 @@ export const Demo = () => {
 	const apisubmmit = async (event) => {
 		event.preventDefault()
 		try {
-			const api = await fetch("https://playground.4geeks.com/apis/fake/contact", {
+			const api = await fetch("https://playground.4geeks.com/contact/agendas/anibal", {
 				method: "POST",
 				body: JSON.stringify(contact),
 				headers: {
@@ -28,7 +28,7 @@ export const Demo = () => {
 			const data = await api.json();
 			console.log(data)
 			setContact({
-				"full_name": "",
+				"name": "",
 				"email": "",
 				"agenda_slug": "my_super_agenda",
 				"address": "",
