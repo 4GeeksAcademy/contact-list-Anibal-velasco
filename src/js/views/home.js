@@ -29,7 +29,7 @@ export const Home = () => {
 								</div>
 								<div className="cardButton">
 									<button onClick={() => { navigate(`/edit/${contact.id}`) }} className="btnCard" ><FontAwesomeIcon icon={faPen} size="lg" style={{ color: "#000000", }} /></button>
-									<button className="btnCard" ><FontAwesomeIcon icon={faTrash} size="lg" style={{ color: "#000000", }} /></button>
+									<button onClick={() => { borrarContacto() }} className="btnCard" ><FontAwesomeIcon icon={faTrash} size="lg" style={{ color: "#000000", }} /></button>
 								</div>
 							</div >
 						</div>
