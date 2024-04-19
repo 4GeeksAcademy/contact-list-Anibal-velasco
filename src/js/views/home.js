@@ -1,32 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen, faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { Demo } from "./demo.js";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Home = () => {
-
-	const [contacts, setContacts] = useState([])
-
-	const contactsInf = async () => {
-		try {
-			const contactsApi = await fetch("https://playground.4geeks.com/contact/agendas/anibal")
-			const resp = await contactsApi.json()
-			console.log(resp);
-			setContacts(resp.contacts)
-		} catch (error) {
-			console.error(error)
-		}
-	}
-
-	useEffect(() => {
-		contactsInf()
-	}, [])
+	const { store, actions } = useContext(Context);
+	const navigate = useNavigate()
 
 
 	return (
 		<>
 			{
-				contacts && contacts.map((contact, id) => {
+				store.contacts && store.contacts.map((contact) => {
 					return (
 						<div key={contact.id} className="fatherCard container">
 							< div className="cardHome">
@@ -40,7 +28,7 @@ export const Home = () => {
 									<p><FontAwesomeIcon icon={faEnvelope} style={{ marginRight: "8px" }} />TestUsuario#1@test.com</p>
 								</div>
 								<div className="cardButton">
-									<button className="btnCard" ><FontAwesomeIcon icon={faPen} size="lg" style={{ color: "#000000", }} /></button>
+									<button onClick={() => { navigate(`/edit/${contact.id}`) }} className="btnCard" ><FontAwesomeIcon icon={faPen} size="lg" style={{ color: "#000000", }} /></button>
 									<button className="btnCard" ><FontAwesomeIcon icon={faTrash} size="lg" style={{ color: "#000000", }} /></button>
 								</div>
 							</div >

@@ -1,64 +1,64 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
 export const Demo = () => {
-
+	const { store, actions } = useContext(Context);
+	const navigate = useNavigate()
+	const params = useParams()
 	const [contact, setContact] = useState({
-		"name": "",
-		"email": "",
-		"agenda_slug": "my_super_agenda",
-		"address": "",
-		"phone": ""
+		name: store.editContact ? store.editContact.name : "",
+		address: store.editContact ? store.editContact.address : "",
+		phone: store.editContact ? store.editContact.phone : "",
+		email: store.editContact ? store.editContact.email : ""
 	})
 
-	const apisubmmit = async (event) => {
+	const submmit = async (event) => {
 		event.preventDefault()
-		try {
-			const api = await fetch("https://playground.4geeks.com/contact/agendas/anibal", {
-				method: "POST",
-				body: JSON.stringify(contact),
-				headers: {
-					"Content-Type": "application/json"
-				}
-			})
-			const data = await api.json();
-			console.log(data)
-			setContact({
-				"name": "",
-				"email": "",
-				"agenda_slug": "my_super_agenda",
-				"address": "",
-				"phone": ""
-			})
-
-		} catch (error) {
-			console.log(error)
+		if (params.id) {
+			const result = await actions.editarContacto(contact, params.id)
+			if (result) {
+				navigate("/")
+				actions.infContact();
+			}
+		} else {
+			actions.addContact(contact)
 		}
+		setContact({
+			"name": "",
+			"email": "",
+			"agenda_slug": "my_super_agenda",
+			"address": "",
+			"phone": ""
+		})
+
 	}
 
 
 
+
 	useEffect(() => {
-		console.log(contact)
-	}, [contact])
+		if (params.id) {
+			const currentContact = store.contacts.find(contact => contact.id == params.id)
+			setContact(currentContact)
+		}
+	}, [params.id])
 
 
 
 	return <>
 
 		<div style={{ textAlign: "center" }}>
-			<h1>Add a New Contact</h1>
+			<h1>{params.id ? `Editando el contacto ${params.id}` : `Add a New Contact`}</h1>
 
-			<form onSubmit={apisubmmit}>
+			<form onSubmit={submmit}>
 				<div className="container">
 					<div class="row d-block">
 						<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Full Name</label>
 						<div class="col-sm-10">
-							<input value={contact.full_name} type="text" onChange={(event) => setContact({ ...contact, full_name: event.target.value })} class="form-control form-control-lg colorStyle" style={{ width: "1235px" }} id="colFormLabelLg" placeholder="Enter Full name" />
+							<input value={contact.name} type="text" onChange={(event) => setContact({ ...contact, name: event.target.value })} class="form-control form-control-lg colorStyle" style={{ width: "1235px" }} id="colFormLabelLg" placeholder="Enter Full name" />
 						</div>
 					</div>
 					<div class="row d-block">
