@@ -75,30 +75,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(error)
 				}
 			},
-			borrarContacto: async () => {
+			borrarContacto: async (id) => {
 				try {
 					const response = await fetch(`https://playground.4geeks.com/contact/agendas/anibal/contacts/${id}`, {
 						method: "DELETE",
-						body: JSON.stringify(contact.id),
 						headers: {
 							"Content-Type": "application/json"
 						}
-					})
-
+					});
+			
 					if (response.ok) {
-						setStore(prevStore => ({
-							...prevStore,
-							contacts: prevStore.contacts.filter(contact => contact.id !== id)
-						}));
+						// Utilizamos getActions() para acceder a las acciones
+						const newContacts = getActions().infContact().filter(contact => contact.id !== id);
+						setStore({ contacts: newContacts });
 						console.log(`Contacto con ID ${id} eliminado exitosamente`);
-						return true;
 					} else {
 						console.error(`Error al eliminar el contacto con ID ${id}: ${response.statusText}`);
 						return false;
 					}
-
+			
 				} catch (error) {
-					console.error(error)
+					console.error(error);
 				}
 			},
 			changeColor: (index, color) => {
